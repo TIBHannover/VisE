@@ -1,0 +1,53 @@
+{
+  "type": "network",
+  "version": "1.0",
+  "data": "data.json",
+  "logo": {
+    "file": "",
+    "link": "",
+    "text": "anonymous"
+  },
+  "text": {
+    "more": "This visualization illustrates the Ontology containing External Event Nodes (red), Internal Event Nodes (gray), and the Root Node (yellow) and their corresponding Relations extracted from Wikidata. It was created by recursively obtaining the parent classes of the External Event Nodes (red). By clicking on a specific node, additional information such as the Wikidata ID (wd_id), the number of connected External Event Nodes or Subgraphs (connected_subgraphs), as well as child (Incoming) and parent (Outgoing) nodes will be presented. In addition, the search bar can be used to directly access a specific Event Node.",
+    "intro": "RED Ontology extracted from Wikidata",
+    "title": "RED Ontology"
+  },
+  "legend": {
+    "edgeLabel": "connection",
+    "colorLabel": "External Event Nodes (red), Internal Event Nodes (gray), Root Node (yellow)",
+    "nodeLabel": "Wikidata label"
+  },
+  "features": {
+    "search": true,
+    "groupSelectorAttribute": false,
+    "hoverBehavior": "dim"
+  },
+  "informationPanel": {
+    "groupByEdgeDirection": true,
+    "imageAttribute": false
+  },
+  "sigma": {
+    "drawingProperties": {
+      "defaultEdgeType": "line",
+      "defaultHoverLabelBGColor": "#002147",
+      "defaultLabelBGColor": "#ddd",
+      "activeFontStyle": "bold",
+      "defaultLabelColor": "#000",
+      "labelThreshold": 1,
+      "defaultLabelHoverColor": "#fff",
+      "fontStyle": "bold",
+      "hoverFontStyle": "bold",
+      "defaultLabelSize": 24
+    },
+    "graphProperties": {
+      "maxEdgeSize": 5,
+      "minEdgeSize": 5,
+      "minNodeSize": 1,
+      "maxNodeSize": 7
+    },
+    "mouseProperties": {
+      "maxRatio": 20,
+      "minRatio": 0.75
+    }
+  }
+}
