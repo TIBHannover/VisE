@@ -8,11 +8,11 @@ Accepted at: *IEEE Winter Conference on Applications of Computer Vision (WACV)*,
 
 ## Content
 
-- [News](News)
-- [Ontologies](Ontologies)
-    - [VisE-O: Visual Event Ontology](VisE-O:-Visual-Event-Ontology)
-    - [Benchmark Ontologies](Benchmark-Ontologies)
-- [License](License)
+- [News](#News)
+- [Ontologies](#Ontologies)
+    - [VisE-O: Visual Event Ontology](#VisE-O:-Visual-Event-Ontology)
+    - [Benchmark Ontologies](#Benchmark-Ontologies)
+- [License](#License)
 
 
 ## News
