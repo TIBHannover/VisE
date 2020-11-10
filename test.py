@@ -12,11 +12,10 @@ import torchvision
 from tqdm import tqdm
 import yaml
 
+from dataset import EventDataset
+from model import ResNet50
 from ontology_reader import OntologyReader
 from utils import read_jsonl, top_k_accuracy, jaccard_similarity, cosine_similarity
-
-from model import ResNet50
-from dataset import EventDataset
 
 
 def parse_args():
@@ -135,14 +134,11 @@ def print_results(metrics, images):
 
 def main():
     args = parse_args()
+    level = logging.INFO
     if args.debug:
-        logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s",
-                            datefmt="%d-%m-%Y %H:%M:%S",
-                            level=logging.DEBUG)
-    else:
-        logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s",
-                            datefmt="%d-%m-%Y %H:%M:%S",
-                            level=logging.INFO)
+        level = logging.DEBUG
+
+    logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s", datefmt="%d-%m-%Y %H:%M:%S", level=level)
 
     # load cfg
     if os.path.exists(args.cfg):
