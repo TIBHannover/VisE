@@ -6,18 +6,25 @@ This is the official GitHub page for the paper:
 "Ontology-driven Event Type Classification in Images".
 Accepted at: *IEEE Winter Conference on Applications of Computer Vision (WACV)*, IEEE, 2021.
 
+## Content
+
+- [News](News)
+- [Ontologies](Ontologies)
+    - [VisE-O: Visual Event Ontology](VisE-O:-Visual-Event-Ontology)
+    - [Benchmark Ontologies](Benchmark-Ontologies)
+- [License](License)
+
+
 ## News
 
 **2nd November 2020:** The paper was accepted at the IEEE Winter Conference on Applications of Computer Vision (WACV) 2021.
 
-**3rd November 2020:** Added supplemental material and visualizations for the ontologies presented in the paper.
+**3rd November 2020:** Added visualizations for the ontologies presented in the paper.
 
 
-## Supplemental Material
+## Ontologies
 
-Detailed information on the sampling strategy to gather event images, statistics for the training and testing datasets presented in Section 3.3, and results using different inference strategies (Section 4.2.3) are available in the [vise_supplemental_material.pdf](vise_supplemental_material.pdf). 
-
-We also provide different versions of the *Visual Event Ontologies (VisE-O)* and the *Ontologies* of the benchmark datasets.
+We provide different versions of the *Visual Event Ontologies (VisE-O)* and the *Ontologies* of the benchmark datasets.
 
 **USAGE:** After opening an *Ontology*, the *Leaf Event Nodes* (blue), *Branch Event Nodes* (orange), and *Root Node* (yellow) as well as their *Relations* are displayed. By clicking on a specific *Event Node* additional information such as the *Wikidata ID* and related child (*Incoming*) and parent (*Outgoing*) nodes are shown. In addition, the search bar can be used to directly access a specific *Event Node*.
 
