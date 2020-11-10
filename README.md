@@ -10,7 +10,7 @@ Accepted at: *IEEE Winter Conference on Applications of Computer Vision (WACV)*,
 
 - [News](#News)
 - [Ontologies](#Ontologies)
-    - [Visual Event Ontology (VisE-O)](#Visual-Event-Ontology-(VisE-O))
+    - [VisE-O: Visual Event Ontology](#)
     - [Benchmark Ontologies](#Benchmark-Ontologies)
 - [License](#License)
 
@@ -29,7 +29,7 @@ We provide different versions of the *Visual Event Ontologies (VisE-O)* and the 
 **USAGE:** After opening an *Ontology*, the *Leaf Event Nodes* (blue), *Branch Event Nodes* (orange), and *Root Node* (yellow) as well as their *Relations* are displayed. By clicking on a specific *Event Node* additional information such as the *Wikidata ID* and related child (*Incoming*) and parent (*Outgoing*) nodes are shown. In addition, the search bar can be used to directly access a specific *Event Node*.
 
 
-### Visual Event Ontology (VisE-O)
+### VisE-O: Visual Event Ontology
 
 In Section 3.2 of the paper, we have presented several methods to create an *Ontology* for newsworthy event types. Statistics are presented in Table 1 of the paper. Different version of the *Ontology* can be explored using the following links:
 - **Initial Ontology** (result of Section 3.2.2): [link](https://tibhannover.github.io/VisE/VisE-O_initial/index.html)
