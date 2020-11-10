@@ -78,7 +78,7 @@ class InferDataset(torch.utils.data.Dataset):
         if self.transform:
             img = self.transform(img)
 
-        return {"image": img}
+        return {"image_path": image_path, "image": img}
 
     def __len__(self):
         return len(self.image_paths)
