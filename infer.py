@@ -29,7 +29,7 @@ def parse_args():
     parser.add_argument("-i", "--images", type=str, nargs="+", required=True, help="Root image or tf_record dir")
 
     # Optional arguments
-    parser.add_argument("--batch_size", type=str, required=False, default=32, help="Batch size")
+    parser.add_argument("--batch_size", type=int, required=False, default=16, help="Batch size")
     parser.add_argument("--num_predictions", type=int, required=False, default=3, help="Number of predictions to show")
     parser.add_argument("--s2l_strategy",
                         type=str,
