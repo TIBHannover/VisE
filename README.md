@@ -6,6 +6,9 @@ This is the official GitHub page for the paper:
 "Ontology-driven Event Type Classification in Images".
 In: *IEEE Winter Conference on Applications of Computer Vision (WACV)*, IEEE, 2021.
 
+Further information can be found on the **EventKG** website: http://eventkg.l3s.uni-hannover.de/VisE
+
+
 ## Content
 
 - [Setup](#setup)
@@ -48,7 +51,7 @@ python setup.py
 We provide the trained models for the following approaches:
 
 - Classification baseline (denoted as ```C```): [link](https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/727c3ee1-4107-4996-878d-1caf537730e8/download/vise_c.tar.gz)
-- Best ontology driven approach using the cross-entropy loss (denoted as ```CO_cel```): [link](https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/7c672f2b-f45e-40aa-b6bb-01fb2e9bf5e7/download/vise_co_cel.tar.gzs)
+- Best ontology driven approach using the cross-entropy loss (denoted as ```CO_cel```): [link](https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/7c672f2b-f45e-40aa-b6bb-01fb2e9bf5e7/download/vise_co_cel.tar.gz)
 - Best ontology driven approach using the cross-entropy loss (denoted as ```CO_cos```): [link](https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/b105c1aa-3bc4-4233-8103-8f4616948d85/download/vise_co_cos.tar.gz)
 
 The performance of these models regarding the top-k accuracy, jaccard similarity coefficient (JSC), and cosine similarity (CS) on the *VisE-Bing* and *VisE-Wiki* testsets is listed below:
