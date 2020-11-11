@@ -14,8 +14,8 @@ class EventDataset(torch.utils.data.Dataset):
         self.dataset = utils.read_jsonl(
             testset_path,
             keep_keys={
-                "id": "id",
-                "wikidata_id": "wikidata_id",
+                "image_path": "image_path",
+                "image_hash": "image_hash",
                 "leaf_class_idx": "leaf_class_idx",
                 "leaf_wd_id": "leaf_wd_id",
             },
@@ -32,7 +32,7 @@ class EventDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         x = self.dataset[idx]
-        path = os.path.join(self.image_dir, x["id"][0:2], x["id"][2:4], x["id"] + ".jpg")
+        path = os.path.join(self.image_dir, x["image_path"])
         if not os.path.exists(path):
             print(path)
             exit()

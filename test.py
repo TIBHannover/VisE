@@ -72,8 +72,8 @@ def get_sample_predictions(infer_dataloader, OntReader, model, device, s2l_strat
             subgraph_vector = OntReader.leaf_to_subgraph_vector(leaf_node_vector)
 
             # store sample prediction
-            sample_predictions[batch["id"][sample]] = {
-                "id": batch["id"][sample],
+            sample_predictions[batch["image_path"][sample]] = {
+                "image_path": batch["image_path"][sample],
                 "gt_leaf_class_idx": batch["leaf_class_idx"][sample].item(),
                 "gt_leaf_wd_id": batch["leaf_wd_id"][sample],
                 "leaf_node_vector": leaf_node_vector,
