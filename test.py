@@ -30,8 +30,8 @@ def parse_args():
     parser.add_argument("-t", "--testset", required=True, help="Path to <testset>.jsonl")
 
     # optional arguments
-    parser.add_argument("-b", "--batch_size", type=str, required=False, default=32, help="Batch size")
     parser.add_argument("-o", "--output", type=str, required=False, help="Path to output file [json or jsonl]")
+    parser.add_argument("--batch_size", type=str, required=False, default=32, help="Batch size")
     parser.add_argument("--s2l_strategy",
                         type=str,
                         required=False,
