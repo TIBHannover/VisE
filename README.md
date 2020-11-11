@@ -43,7 +43,7 @@ cd /src
 You can automatically download the files (ontologies, models, etc.) that are required for [inference](#inference) and [test](#test) with the following command:
 
 ```shell script
-python setup.py
+python download_resources.py
 ```
 
 ## Models
