@@ -148,7 +148,7 @@ In order to evaluate the presented ontology-diven approach on other benchmark da
 
 ## Supplemental Material
 
-Will be added soon.
+Detailed information on the sampling strategy to gather event images, statistics for the training and testing datasets presented in Section 3.3, and results using different inference strategies (Section 4.2.3) are available in the [vise_supplemental.pdf](vise_supplemental.pdf). 
 
 
 ## LICENSE
