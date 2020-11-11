@@ -11,15 +11,17 @@ Further information can be found on the **EventKG** website: http://eventkg.l3s.
 
 ## Content
 
-- [Setup](#setup)
-- [Models](#models)
-- [Inference](#inference)
-- [Test](#test)
-- [VisE-D: Visual Event Classification Dataset](#vise-d-visual-event-classification-dataset)
-- [VisE-O: Visual Event Ontology](#vise-o-visual-event-ontology)
-- [Benchmark Ontologies](#benchmark-ontologies)
-- [Supplemental Material](#supplemental-material)
-- [License](#license)
+- [Ontology-driven Event Type Classification in Images](#ontology-driven-event-type-classification-in-images)
+  - [Content](#content)
+  - [Setup](#setup)
+  - [Models](#models)
+  - [Inference](#inference)
+  - [Test](#test)
+  - [VisE-D: Visual Event Classification Dataset](#vise-d-visual-event-classification-dataset)
+  - [VisE-O: Visual Event Ontology](#vise-o-visual-event-ontology)
+  - [Benchmark Ontologies](#benchmark-ontologies)
+  - [Supplemental Material](#supplemental-material)
+  - [LICENSE](#license)
 
 
 ## Setup
@@ -35,6 +37,7 @@ To run the container please use:
 ```shell script
 docker run \
   --volume <PATH/TO/REPOSITORY>:/src \
+  --shm-size=256m \
   -u $(id -u):$(id -g) \
   -it <DOCKER_NAME> bash 
 cd /src
@@ -58,19 +61,19 @@ The performance of these models regarding the top-k accuracy, jaccard similarity
 
 \
 **VisE-Bing**
-| Model  | Top-1    | Top-3    | Top-5    | JSC      | CS       |
+| Model  |  Top-1   |  Top-3   |  Top-5   |   JSC    |    CS    |
 | :----- | :------: | :------: | :------: | :------: | :------: |
-| C      | 77.4     | 89.8     | 93.6     | 84.7     | 87.7     |
-| CO_cel | 81.5     | **91.8** | **94.3** | 87.5     | 90.0     |
-| CO_cos | **81.9** | 90.8     | 93.2     | **87.9** | **90.4** |
+| C      |   77.4   |   89.8   |   93.6   |   84.7   |   87.7   |
+| CO_cel |   81.5   | **91.8** | **94.3** |   87.5   |   90.0   |
+| CO_cos | **81.9** |   90.8   |   93.2   | **87.9** | **90.4** |
 
 \
 **VisE-Wiki**
-| Model  | Top-1    | Top-3    | Top-5    | JSC      | CS       |
+| Model  |  Top-1   |  Top-3   |  Top-5   |   JSC    |    CS    |
 | :----- | :------: | :------: | :------: | :------: | :------: |
-| C      | 61.7     | 74.6     | **79.2** | 72.7     | 77.8     |
-| CO_cel | 63.4     | **74.7** | 78.8     | 73.9     | 78.7     |
-| CO_cos | **63.5** | 74.3     | 78.8     | **74.1** | **79.0** |
+| C      |   61.7   |   74.6   | **79.2** |   72.7   |   77.8   |
+| CO_cel |   63.4   | **74.7** |   78.8   |   73.9   |   78.7   |
+| CO_cos | **63.5** |   74.3   |   78.8   | **74.1** | **79.0** |
 
 
 ## Inference
