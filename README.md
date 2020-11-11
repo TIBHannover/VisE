@@ -37,7 +37,7 @@ docker run \
 cd /src
 ```
 
-You can automatically download the files (ontologies, models, etc.) that are required for [inference](inference) and [testing](test) with the following command:
+You can automatically download the files (ontologies, models, etc.) that are required for [inference](#inference) and [test](#test) with the following command:
 
 ```shell script
 python setup.py
@@ -48,8 +48,8 @@ python setup.py
 We provide the trained models for the following approaches:
 
 - Classification baseline (denoted as ```C```): [link](https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/727c3ee1-4107-4996-878d-1caf537730e8/download/vise_c.tar.gz)
-- Best ontology driven approach using the cross-entropy loss (denoted as ```CO_cel```): [link](https://data.uni-hannover.de/de/dataset/vise/resource/7c672f2b-f45e-40aa-b6bb-01fb2e9bf5e7)
-- Best ontology driven approach using the cross-entropy loss (denoted as ```CO_cos```): [link](https://data.uni-hannover.de/de/dataset/vise/resource/b105c1aa-3bc4-4233-8103-8f4616948d85)
+- Best ontology driven approach using the cross-entropy loss (denoted as ```CO_cel```): [link](https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/7c672f2b-f45e-40aa-b6bb-01fb2e9bf5e7/download/vise_co_cel.tar.gzs)
+- Best ontology driven approach using the cross-entropy loss (denoted as ```CO_cos```): [link](https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/b105c1aa-3bc4-4233-8103-8f4616948d85/download/vise_co_cos.tar.gz)
 
 The performance of these models regarding the top-k accuracy, jaccard similarity coefficient (JSC), and cosine similarity (CS) on the *VisE-Bing* and *VisE-Wiki* testsets is listed below:
 
@@ -72,7 +72,7 @@ The performance of these models regarding the top-k accuracy, jaccard similarity
 
 ## Inference
 
-In order to apply our [models](models) on an image or a list of images, please execute the following command:
+In order to apply our [models](#models) on an image or a list of images, please execute the following command:
 
 ```shell script
 python infer.py -c </path/to/model.yml> -i </path/to/image(s)>
