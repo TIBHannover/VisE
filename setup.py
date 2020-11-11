@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 def main():
     cur_dir = os.path.dirname(__file__)
-    out_dir = os.path.join(cur_dir, 'resources_autodownload')
+    out_dir = os.path.join(cur_dir, 'resources')
 
     base_url = "https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/"
     urls = [
