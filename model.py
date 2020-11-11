@@ -4,16 +4,13 @@ import logging
 
 
 class ResNet50(torch.nn.Module):
-    def __init__(self, num_classes, model_type, redundancy_removal, pretrained=True):
+    def __init__(self, num_classes, model_type, redundancy_removal):
         super(ResNet50, self).__init__()
         self._num_classes = num_classes
         self.model_type = model_type
         self.redundancy_removal = redundancy_removal
 
-        if pretrained:
-            logging.info("Loading pretrained weights")
-
-        resnet_model = torchvision.models.resnet.resnet50(pretrained=pretrained)
+        resnet_model = torchvision.models.resnet.resnet50(pretrained=False)
         self._features = torch.nn.Sequential(*list(resnet_model.children())[:-1])
         self._fc = torch.nn.Linear(2048, num_classes)
 
