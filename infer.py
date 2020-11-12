@@ -59,7 +59,7 @@ def get_sample_predictions(infer_dataloader, OntReader, model, device, s2l_strat
                                                                      strategy=s2l_strategy,
                                                                      redundancy_removal=model.redundancy_removal)
 
-                if prediction is None:  # function returned error
+                if leaf_node_vector is None:  # function returned error
                     logging.error(
                         "Conversion from subgraph vector to leaf node vector failed! Correct config parameters?")
                     return {}
