@@ -1,4 +1,5 @@
 import imageio
+import logging
 import numpy as np
 import os
 import torch
@@ -34,8 +35,7 @@ class EventDataset(torch.utils.data.Dataset):
         x = self.dataset[idx]
         path = os.path.join(self.image_dir, x["image_path"])
         if not os.path.exists(path):
-            print(path)
-            exit()
+            logging.error(f"Could not find image: {path}")
             return self[(idx + 1) % len(self)]
 
         img = imageio.imread(path)
@@ -64,6 +64,10 @@ class InferDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         image_path = self.image_paths[idx]
+
+        if not os.path.exists(image_path):
+            logging.error(f"Could not find image: {image_path}")
+            return self[(idx + 1) % len(self)]
 
         img = imageio.imread(image_path)
         if len(img.shape) == 2:
