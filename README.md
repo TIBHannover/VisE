@@ -14,6 +14,10 @@ Further information can be found on the **EventKG** website: http://eventkg.l3s.
 - [Ontology-driven Event Type Classification in Images](#ontology-driven-event-type-classification-in-images)
   - [Content](#content)
   - [Setup](#setup)
+    - [Setup with Singularity (for Reproducibility)](#setup-with-singularity-for-reproducibility)
+    - [Setup with Virtual Environment](#setup-with-virtual-environment)
+    - [Setup with Docker](#setup-with-docker)
+  - [Download Ontology, Dataset and Models](#download-ontology-dataset-and-models)
   - [Models](#models)
   - [Inference](#inference)
   - [Test](#test)
@@ -25,6 +29,42 @@ Further information can be found on the **EventKG** website: http://eventkg.l3s.
 
 
 ## Setup
+
+We provide three different ways to setup the project. The results can be reproduced using the [setup with singularity](#setup-with-singularity-for-reproducibility). The singularity image is built with an optimized pytorch implementation on arch linux, which we used for training and testing.
+                                                                                                                            
+While the other two setups using a [virtual environment](#setup-with-virtual-environment) or [docker](#setup-with-docker) produce the same result on our testsets, they slightly differ from the results reported in the paper (deviation around 0.1%).
+
+
+### Setup with Singularity (for Reproducibility)
+
+To install singularity please follow the instructions on: https://sylabs.io/guides/3.6/admin-guide/installation.html
+
+Download our singularity image from: [link](https://tib.eu/cloud/s/fPMwLMWo3wCmMRy/download)
+
+To run code using sinularity, please run: 
+
+```shell script
+singularity exec \
+  -B </PATH/TO/REPOSITORY>:/src \
+  --nv </PATH/TO/SINGULARITY/IMAGE>.sif \
+  bash
+
+cd /src
+```
+
+
+### Setup with Virtual Environment
+
+Please run the following command to setup the project in your (virtual) environment:
+
+```shell script
+pip install -r requirements.txt
+```
+
+**NOTE:** This setup produces slightly different results (deviation around 0.1%) while [testing]('#test). To fully reproduce our results we have provided a [singularity image](#setup-with-singularity-recommended-way), which is a copy of our training and testing environment and uses a highly optimized pytorch implementation.
+
+
+### Setup with Docker
 
 We have provided a Docker container to execute our code. You can build the container with:
 
@@ -40,14 +80,21 @@ docker run \
   --shm-size=256m \
   -u $(id -u):$(id -g) \
   -it <DOCKER_NAME> bash 
+
 cd /src
 ```
+
+**NOTE:** This setup produces slightly different results (deviation around 0.1%) while [testing]('#test). To fully reproduce our results we have provided a [singularity image](#setup-with-singularity-recommended-way), which is a copy of our training and testing environment and uses a highly optimized pytorch implementation.
+
+
+## Download Ontology, Dataset and Models
 
 You can automatically download the files (ontologies, models, etc.) that are required for [inference](#inference) and [test](#test) with the following command:
 
 ```shell script
 python download_resources.py
 ```
+
 
 ## Models
 
@@ -57,7 +104,7 @@ We provide the trained models for the following approaches:
 - Best ontology driven approach using the cross-entropy loss (denoted as ```CO_cel```): [link](https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/7c672f2b-f45e-40aa-b6bb-01fb2e9bf5e7/download/vise_co_cel.tar.gz)
 - Best ontology driven approach using the cross-entropy loss (denoted as ```CO_cos```): [link](https://data.uni-hannover.de/dataset/3afb333d-230f-4829-91bb-d4dd41bfdcfa/resource/b105c1aa-3bc4-4233-8103-8f4616948d85/download/vise_co_cos.tar.gz)
 
-The performance of these models regarding the top-k accuracy, jaccard similarity coefficient (JSC), and cosine similarity (CS) on the *VisE-Bing* and *VisE-Wiki* testsets is listed below:
+The performance of these models regarding the top-k accuracy, jaccard similarity coefficient (JSC), and cosine similarity (CS) on the *VisE-Bing* and *VisE-Wiki* testsets is listed below using the provided [singularity image]():
 
 \
 **VisE-Bing**
@@ -87,11 +134,13 @@ python infer.py -c </path/to/model.yml> -i </path/to/image(s)>
 **Optional parameters:**
 As standard parameters the batch size is set to 32, the top-5 predictions will be shown, and the multiplied values of the leaf node probability and subgraph cosine similarity are used to convert the subgraph vector to a leaf node vector (details are presented in Section 4.2.3 of the paper).
 
-You can specify the batch size with: ```--batch_size <int>```
 
-You can specify the number of top predictions with: ```--num_predictions <int>```
+```--batch_size <int>``` specifies the batch size (default ```16```)
 
-You can use other strategies to retrieve the leaf node vector with: ```--s2l_strategy [leafprob, cossim, leafprob*cossim]```
+```--num_predictions <int>``` sets the number of top predictions printed on the console (default ```3```) 
+
+```--s2l_strategy [leafprob, cossim, leafprob*cossim]``` specifies the strategies to retrieve the leaf node vector from a subgraph vector (default ```leafprob*cossim```) 
+
 
 ## Test
 
@@ -101,8 +150,18 @@ This step requires to download the test images in the *VisE-Bing* or *VisE-Wiki*
 python download_images.py -d </path/to/dataset.jsonl> -o </path/to/output/root_directory/>
 ```
 
+**Optional parameters:**
+
+```-t <int>``` sets the number of parallel threads (default ```32```)
+
+```-r <int>``` sets the number of retries to download an image (default ```5```)
+
+```--max_img_dim <int>``` sets the dimension of the longer image dimension (default ```512```)
+
 **NOTE:** This step also allows to download the training and validation images in case you want to build your own models.
 
+
+\
 After downloading the test images you can calculate the results using the following command:
 
 ```shell script
@@ -116,19 +175,28 @@ python test.py \
 **Optional parameters:**
 As standard parameters the batch size is set to 32 and the multiplied values of the leaf node probability and subgraph cosine similarity are used to convert the subgraph vector to a leaf node vector (details are presented in Section 4.2.3 of the paper).
 
-You can specify the batch size with: ```--batch_size <int>```
+```--batch_size <int>``` specifies the batch size (default ```16```)
 
-You can use other strategies to retrieve the leaf node vector with: ```--s2l_strategy [leafprob, cossim, leafprob*cossim]```
+```--s2l_strategy [leafprob, cossim, leafprob*cossim]``` specifies the strategies to retrieve the leaf node vector from a subgraph vector (default ```leafprob*cossim```) 
+
 
 ## VisE-D: Visual Event Classification Dataset
 
 The *Visual Event Classification Dataset (VisE-D)* is available on: https://data.uni-hannover.de/de/dataset/vise
 
-You can automatically download the dataset by following the [setup](#setup) instructions. To download the images from the provided URLs, please run the following command:
+You can automatically download the dataset by following the instructions in [Download Ontology, Dataset and Models](#download-ontology-dataset-and-models). To download the images from the provided URLs, please run the following command:
 
 ```shell script
 python download_images.py -d </path/to/dataset.jsonl> -o </path/to/output/root_directory/>
 ```
+
+Optional parameters:
+
+```-t <int>``` sets the number of parallel threads (default ```32```)
+
+```-r <int>``` sets the number of retries to download an image (default ```5```)
+
+```--max_img_dim <int>``` sets the dimension of the longer image dimension (default ```512```)
 
 
 ## VisE-O: Visual Event Ontology
@@ -144,6 +212,7 @@ Furthermore you can explore the *Ontologies* using the following links:
 - **Refined Ontology** (result of Section 3.2.4): [explore](https://tibhannover.github.io/VisE/VisE-O_refined/index.html)
 
 **USAGE:** After opening an *Ontology*, the *Leaf Event Nodes* (blue), *Branch Event Nodes* (orange), and *Root Node* (yellow) as well as their *Relations* are displayed. By clicking on a specific *Event Node* additional information such as the *Wikidata ID* and related child (*Incoming*) and parent (*Outgoing*) nodes are shown. In addition, the search bar can be used to directly access a specific *Event Node*.
+
 
 ## Benchmark Ontologies
 
