@@ -31,25 +31,22 @@ def download_image(url, path, max_dim=512, num_retries=5):
     try_count = num_retries
     while try_count > 0:
         try:
-            request = urllib.request.Request(
-                url=url,
-                headers={
-                    "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3)"
-                                   " AppleWebKit/537.36 (KHTML, like Gecko) "
-                                   "Chrome/48.0.2564.116 Safari/537.36")
-                },
-            )
-            with urllib.request.urlopen(request, timeout=10) as response:
 
-                image = imageio.imread(response.read(), pilmode="RGB")
-                shape = np.asarray(image.shape[:-1], dtype=np.float32)
-                long_dim = max(shape)
-                scale = min(1, max_dim / long_dim)
-
-                new_shape = np.asarray(shape * scale, dtype=np.int32)
-                image = cv2.resize(image, tuple(new_shape[::-1].tolist()))
-                imageio.imwrite(path, image)
-                return True
+            image = imageio.imread(url)
+            if len(image.shape) == 2:
+                image = np.stack([image] * 3)
+            if len(image.shape) == 3:
+                if image.shape[-1] > 3:
+                    image = image[..., 0:3]
+                if image.shape[-1] < 3:
+                    image = np.stack([image[..., 0]] * 3)
+            shape = np.asarray(image.shape[:-1], dtype=np.float32)
+            long_dim = max(shape)
+            scale = min(1, max_dim / long_dim)
+            new_shape = np.asarray(shape * scale, dtype=np.int32)
+            image = cv2.resize(image, tuple(new_shape[::-1].tolist()))
+            imageio.imwrite(path, image)
+            return True
 
         except urllib.error.HTTPError as err:
             logging.error(f"Error downloading {url}: {str(err.reason)}")
@@ -67,7 +64,6 @@ def download_image(url, path, max_dim=512, num_retries=5):
             time.sleep(1.0)
 
         try_count -= 1
-
     return None
 
 
