@@ -6,6 +6,8 @@ This is the official GitHub page for the paper:
 "Ontology-driven Event Type Classification in Images".
 In: *IEEE Winter Conference on Applications of Computer Vision (WACV)*, IEEE, 2021.
 
+The paper is available on *arXiv*: https://arxiv.org/abs/2011.04714
+
 Further information can be found on the **EventKG** website: http://eventkg.l3s.uni-hannover.de/VisE
 
 
