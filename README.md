@@ -41,7 +41,7 @@ While the other two setups using a [virtual environment](#setup-with-virtual-env
 
 To install singularity please follow the instructions on: https://sylabs.io/guides/3.6/admin-guide/installation.html
 
-Download our singularity image from: [link](https://tib.eu/cloud/s/fPMwLMWo3wCmMRy/download)
+Download our singularity image from: [link](https://tib.eu/cloud/s/fPMwLMWo3wCmMRy/download) (Filesize is 5 GB)
 
 To run code using sinularity, please run: 
 
