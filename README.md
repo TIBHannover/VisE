@@ -61,7 +61,7 @@ Please run the following command to setup the project in your (virtual) environm
 pip install -r requirements.txt
 ```
 
-**NOTE:** This setup produces slightly different results (deviation around 0.1%) while [testing]('#test). To fully reproduce our results we have provided a [singularity image](#setup-with-singularity-recommended-way), which is a copy of our training and testing environment and uses a highly optimized pytorch implementation.
+**NOTE:** This setup produces slightly different results (deviation around 0.1%) while [testing](#test). To fully reproduce our results we have provided a [singularity image](#setup-with-singularity-for-reproducibility), which is a copy of our training and testing environment and uses a highly optimized pytorch implementation.
 
 
 ### Setup with Docker
@@ -84,7 +84,7 @@ docker run \
 cd /src
 ```
 
-**NOTE:** This setup produces slightly different results (deviation around 0.1%) while [testing]('#test). To fully reproduce our results we have provided a [singularity image](#setup-with-singularity-recommended-way), which is a copy of our training and testing environment and uses a highly optimized pytorch implementation.
+**NOTE:** This setup produces slightly different results (deviation around 0.1%) while [testing](#test). To fully reproduce our results we have provided a [singularity image](#setup-with-singularity-for-reproducibility), which is a copy of our training and testing environment and uses a highly optimized pytorch implementation.
 
 
 ## Download Ontology, Dataset and Models
