@@ -97,6 +97,8 @@ You can automatically download the files (ontologies, models, etc.) that are req
 python download_resources.py
 ```
 
+The files will be stored in a folder called ```resources/``` relative to the repository path.
+
 
 ## Models
 
@@ -133,6 +135,8 @@ In order to apply our [models](#models) on an image or a list of images, please 
 python infer.py -c </path/to/model.yml> -i </path/to/image(s)>
 ```
 
+If you followed the instructions in [Download Ontology, Dataset and Models](#download-ontology-dataset-and-models) the model config is placed in ```resources/VisE-D/models/<modelname>.yml``` relative to the repository path.
+
 **Optional parameters:**
 As standard parameters the batch size is set to 32, the top-5 predictions will be shown, and the multiplied values of the leaf node probability and subgraph cosine similarity are used to convert the subgraph vector to a leaf node vector (details are presented in Section 4.2.3 of the paper).
 
@@ -151,6 +155,9 @@ This step requires to download the test images in the *VisE-Bing* or *VisE-Wiki*
 ```shell script
 python download_images.py -d </path/to/dataset.jsonl> -o </path/to/output/root_directory/>
 ```
+
+If you followed the instructions in [Download Ontology, Dataset and Models](#download-ontology-dataset-and-models) the dataset is placed in ```resources/VisE-D/<datasetname>.jsonl``` and model config is placed in ```resources/VisE-D/models/<modelname>.yml``` relative to the repository path.
+
 
 **Optional parameters:**
 
