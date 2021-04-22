@@ -4,9 +4,11 @@ This is the official GitHub page for the paper:
 
 > Eric Müller-Budack, Matthias Springstein, Sherzod Hakimov, Kevin Mrutzek, and Ralph Ewerth:
 "Ontology-driven Event Type Classification in Images".
-In: *IEEE Winter Conference on Applications of Computer Vision (WACV)*, IEEE, 2021.
+In: *Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)*, pages 2928-2938, IEEE, Virtual Conference, 2021.
 
-The paper is available on *arXiv*: https://arxiv.org/pdf/2011.04714.pdf
+The paper is available on:
+- *Computer Vision Foundation (CVF)*: https://openaccess.thecvf.com/content/WACV2021/html/Muller-Budack_Ontology-Driven_Event_Type_Classification_in_Images_WACV_2021_paper.html
+- *arXiv*: https://arxiv.org/pdf/2011.04714.pdf
 
 Further information can be found on the **EventKG** website: http://eventkg.l3s.uni-hannover.de/VisE
 
